@@ -3,6 +3,7 @@ class Sqlwrite < Formula
   homepage "https://github.com/plasma-umass/sqlwrite"
   url "https://github.com/plasma-umass/sqlwrite.git", branch: "main"
   license "Apache-2.0"
+  version "1.0"
 
   depends_on "make" # Add other dependencies if needed
 
