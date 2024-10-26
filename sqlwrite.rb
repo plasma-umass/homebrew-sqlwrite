@@ -4,6 +4,7 @@ class Sqlwrite < Formula
   url "https://github.com/plasma-umass/sqlwrite.git", branch: "main"
   license "Apache-2.0"
   head "https://github.com/plasma-umass/sqlwrite.git" # Specify 'head' for the latest commit on main
+  version "0.1.2"
 
   depends_on "make" # Add other dependencies if needed
 
