@@ -7,9 +7,14 @@ class Sqlwrite < Formula
 
   version "0.0.0" # Set a placeholder version
 
-  depends_on "pkg-config" => :build # Add other dependencies if needed
+  depends_on "pkg-config" => :build
+  depends_on "curl"
 
   def install
+    # Set the flags for the linker to find Homebrew's curl
+    ENV.append "LDFLAGS", "-L#{Formula["curl"].opt_lib}"
+    ENV.append "CPPFLAGS", "-I#{Formula["curl"].opt_include}"
+
     # Build using make
     system "make"
     # Install the binary
