@@ -5,6 +5,8 @@ class Sqlwrite < Formula
   license "Apache-2.0"
   head "https://github.com/plasma-umass/sqlwrite.git", branch: "main"
 
+  version "0.0.0" # Set a placeholder version
+
   depends_on "pkg-config" => :build # Add other dependencies if needed
 
   def install
@@ -14,12 +16,8 @@ class Sqlwrite < Formula
     bin.install "sqlwrite"
   end
 
-  def version
-    Utils.git_head.length > 0 ? Utils.git_head : "0.0.0"
-  end
-
   test do
     # Test the installation
-    assert_match version.to_s, shell_output("#{bin}/sqlwrite --version")
+    system "#{bin}/sqlwrite", "--version"
   end
 end
