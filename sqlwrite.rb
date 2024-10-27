@@ -6,6 +6,9 @@ class Sqlwrite < Formula
 
   depends_on "pkg-config" => :build # Add other dependencies if needed
 
+  # Dynamically set the version based on the latest commit hash
+  version `git rev-parse --short HEAD`.strip
+
   def install
     # Build using make
     system "make"
