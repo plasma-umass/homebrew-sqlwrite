@@ -3,17 +3,19 @@ class Sqlwrite < Formula
   homepage "https://github.com/plasma-umass/sqlwrite"
   url "https://github.com/plasma-umass/sqlwrite.git", branch: "main"
   license "Apache-2.0"
+  head "https://github.com/plasma-umass/sqlwrite.git", branch: "main"
 
   depends_on "pkg-config" => :build # Add other dependencies if needed
-
-  # Dynamically set the version based on the latest commit hash
-  version `git rev-parse --short HEAD`.strip
 
   def install
     # Build using make
     system "make"
     # Install the binary
     bin.install "sqlwrite"
+  end
+
+  def version
+    Utils.git_head.length > 0 ? Utils.git_head : "0.0.0"
   end
 
   test do
